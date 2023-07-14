@@ -1,11 +1,10 @@
-import React, { ReactNode } from "react";
 import Ingredients from "./Ingredients";
 import SearchToggle from "./SearchToggle";
 
 type Search = {
   searchCocktail: Boolean;
-  setSearchCocktail: ReactNode;
-  setSearchingFor: ReactNode;
+  setSearchCocktail: any;
+  setSearchingFor: any;
 };
 
 const SearchBox = ({

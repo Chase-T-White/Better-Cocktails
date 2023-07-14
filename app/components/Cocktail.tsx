@@ -27,12 +27,16 @@ const Cocktail = ({
   // Add Favorite
   const { mutate } = useMutation(
     async (idDrink: string) =>
-      await axios.post("/api/drinks/addFavorite", { idDrink }),
+      axios.post("/api/drinks/addFavorite", { idDrink }),
     {
-      onError: (error) => {
-        toast.error(error?.response?.data.message, { id: idDrink });
+      onError: (error: any) => {
+        if (error?.response?.data?.message) {
+          toast.error(error.response.data.message, { id: idDrink });
+        } else {
+          toast.error("An error occurred", { id: idDrink });
+        }
       },
-      onSuccess: (data) => {
+      onSuccess: (data: any) => {
         toast.success("Drink added to Favorites");
       },
     }

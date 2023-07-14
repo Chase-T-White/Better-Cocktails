@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
-import { ReactNode } from "react";
 
 // Fetch Ingredients list
 const fetchIngredients = async () => {
