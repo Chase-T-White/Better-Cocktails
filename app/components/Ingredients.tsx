@@ -11,7 +11,11 @@ const fetchIngredients = async () => {
   return res.data;
 };
 
-const Ingredients = ({ setSearchingFor }: any) => {
+type IngredientsProps = {
+  setSearchingFor: (value: string) => void;
+};
+
+const Ingredients: React.FC<IngredientsProps> = ({ setSearchingFor }) => {
   const { data, error, isLoading } = useQuery({
     queryFn: fetchIngredients,
     queryKey: ["ingredients"],
@@ -22,10 +26,10 @@ const Ingredients = ({ setSearchingFor }: any) => {
   return (
     <select className="w-full bg-zinc-700 rounded-[50vw] border-[1px] border-solid border-white/50 form-input ps-4 py-[2.5px]">
       {data.drinks
-        .sort((a, b) => {
+        .sort((a: any, b: any) => {
           return a.strIngredient1.localeCompare(b.strIngredient1);
         })
-        .map((ingredient, i) => {
+        .map((ingredient: any, i: any) => {
           return (
             <option
               value={ingredient.strIngredient1}
