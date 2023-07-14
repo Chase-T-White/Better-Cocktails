@@ -7,13 +7,21 @@ import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 
+type Drink = {
+  idDrink: string;
+  strDrink: string;
+  strGlass: string;
+  strDrinkThumb: string;
+  strAlcoholic: string;
+};
+
 const Cocktail = ({
   idDrink,
   strDrink,
   strGlass,
   strDrinkThumb,
   strAlcoholic,
-}) => {
+}: Drink) => {
   let toastFavoriteID: string;
 
   // Add Favorite

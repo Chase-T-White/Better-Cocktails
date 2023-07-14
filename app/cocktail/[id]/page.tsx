@@ -11,7 +11,7 @@ const page = ({
   params,
 }: {
   params: {
-    slug: URL;
+    id: string;
   };
 }) => {
   const address = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=";

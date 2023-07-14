@@ -17,8 +17,6 @@ export default function Home() {
 
   // Fetching drinks
   const fetchDrinks = async ({ searchCocktail, searchingFor }: Props) => {
-    console.log(searchCocktail, searchingFor);
-
     const url = "https://www.thecocktaildb.com/api/json/v1/1/";
     const type = searchCocktail ? "search.php?s=" : "filter.php?i=";
 

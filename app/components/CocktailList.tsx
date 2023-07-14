@@ -1,6 +1,13 @@
+import { ReactNode } from "react";
 import Cocktail from "./Cocktail";
 
-const CocktailList = ({ isLoading, cocktails }) => {
+const CocktailList = ({
+  isLoading,
+  cocktails,
+}: {
+  isLoading: Boolean;
+  cocktails: ReactNode;
+}) => {
   if (isLoading) {
     return <h2>Loading...</h2>;
   }

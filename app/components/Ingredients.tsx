@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
+import { ReactNode } from "react";
 
 // Fetch Ingredients list
 const fetchIngredients = async () => {
@@ -11,7 +12,7 @@ const fetchIngredients = async () => {
   return res.data;
 };
 
-const Ingredients = ({ setSearchingFor }) => {
+const Ingredients = ({ setSearchingFor }: any) => {
   const { data, error, isLoading } = useQuery({
     queryFn: fetchIngredients,
     queryKey: ["ingredients"],
