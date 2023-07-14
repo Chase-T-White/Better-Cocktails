@@ -1,18 +1,16 @@
-import { ReactNode } from "react";
 import Cocktail from "./Cocktail";
 
-const CocktailList = ({
-  isLoading,
-  cocktails,
-}: {
-  isLoading: Boolean;
-  cocktails: ReactNode;
-}) => {
+type CocktailListProps = {
+  isLoading: boolean;
+  cocktails: { drinks: any[] } | null | undefined;
+};
+
+const CocktailList = ({ isLoading, cocktails }: CocktailListProps) => {
   if (isLoading) {
     return <h2>Loading...</h2>;
   }
 
-  if (cocktails.drinks === null) {
+  if (!cocktails || cocktails.drinks === null) {
     return <h2>Oops, no cocktails match your search</h2>;
   }
 
