@@ -6,7 +6,6 @@ const fetchIngredients = async () => {
   const res = await axios.get(
     "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
   );
-  console.log(res);
 
   return res.data;
 };
@@ -20,8 +19,10 @@ const Ingredients: React.FC<IngredientsProps> = ({ setSearchingFor }) => {
     queryFn: fetchIngredients,
     queryKey: ["ingredients"],
   });
-  if (error) return error;
+  if (error) return null;
   if (isLoading) return "Loading....";
+
+  if (!data || !data.drinks) return null;
 
   return (
     <select className="w-full bg-zinc-700 rounded-[50vw] border-[1px] border-solid border-white/50 form-input ps-4 py-[2.5px]">
